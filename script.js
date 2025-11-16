@@ -13,8 +13,7 @@ let lInput;
 let hIlInput;
 let hGInput;
 let dInput;
-let numResidents1;
-let numDevices1;
+let uInput;
 
 let h1;
 let h2;
@@ -23,7 +22,6 @@ let hGeom;
 let hSSum;
 let hTr
 let hL;
-let qSMax1;
 
 let Htr;
 let Hnijt;
@@ -132,27 +130,9 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (element) element.textContent = dInput;
             }
 
-            if (this.hasAttribute('data-numResidents1-input')) {
-                numResidents1 = this.value;
-                allValue('[data-numResidents1-input]', numResidents1);
-            }
-
-            if (this.hasAttribute('data-numDevices1-input')) {
-                numDevices1 = this.value;
-                allValue('[data-numDevices1-input]', numDevices1);
-            }
-
-            if (numResidents1 && numDevices1 && Nb0) {
-                let p = 5.1*numResidents1/0.2/3600/Nb0;
-                p = Number(p.toFixed(3));
-                qSMax1 = Number((findAlphaByNP(p * Nb0)).toFixed(4));
-
-                let result = findDQS(Number(qSMax1));
-                let resultText = result.s + " * " + qSMax1 + "² = " + Number((Number(qSMax1)**2 * result.s).toFixed(2));
-                h1 = Number((Number(qSMax1)**2 * result.s).toFixed(2));
-                const text = document.getElementById('h-text');
-                if (text) text.textContent = resultText;
-
+            if (this.hasAttribute('data-U-input')) {
+                uInput = this.value;
+                allValue('[data-U-input]', uInput);
             }
 
             if (numFloors) {
@@ -178,12 +158,13 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (element) element.textContent = Number(hGeom.toFixed(1));
             }
 
-            if (numBuildings && numSections && numFloors && numApartments && population && qDB0Input && qDB1Input) {
-                U = parseFloat(numBuildings) * parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numApartments) * parseFloat(population);
-                U = Number(U.toFixed(2));
-                let uCalculate = numBuildings + " * " + numSections + " * " + numFloors + " * " + numApartments + " * " + population + " = " + U;
-                allValue('[u-calculate]', uCalculate)
-                U = Math.ceil(U);
+            if (uInput && qDB0Input && qDB1Input) {
+                U = uInput;
+                // U = parseFloat(numBuildings) * parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numApartments) * parseFloat(population);
+                // U = Number(U.toFixed(2));
+                // let uCalculate = numBuildings + " * " + numSections + " * " + numFloors + " * " + numApartments + " * " + population + " = " + U;
+                // allValue('[u-calculate]', uCalculate)
+                // U = Math.ceil(U);
                 allValue('[u]', U.toString() + " чел")
                 allValue('[u-3]', U.toString() + " чел. (количество водопотребителей)")
 
