@@ -7,13 +7,15 @@ let floorHeight;
 let population;
 let numDevices;
 let numApartments;
-let qDB0Input;
-let qDB1Input;
 let lInput;
 let hIlInput;
 let hGInput;
 let dInput;
 let uInput;
+//new part 25.11
+let h2Input;
+//new part 30.11
+let nInput;
 
 let h1;
 let h2;
@@ -92,12 +94,6 @@ for (let elem = 0; elem < inputs.length; elem++){
                 allValue('[data-num-apartments]', numApartments);
             }
 
-            if (this.hasAttribute('data-qDB0-input')) {
-                qDB0Input = this.value;
-                qDB1Input = Number(qDB0Input) - 70;
-                allValue('[data-qDB0-input]', qDB0Input);
-            }
-
             if (this.hasAttribute('data-l-input')) {
                 lInput = this.value;
                 allValue('[data-l-input]', lInput);
@@ -135,6 +131,36 @@ for (let elem = 0; elem < inputs.length; elem++){
                 allValue('[data-U-input]', uInput);
             }
 
+            //new part 30.11
+            if (this.hasAttribute('data-n-input')) {
+                nInput = this.value;
+                allValue('[data-n-input]', nInput);
+
+                let text = document.getElementById('n-input-table2');
+                if (text) text.textContent = nInput;
+            }
+
+            //new part 25.11
+            if (this.hasAttribute('data-h2-input')) {
+                h2Input = this.value;
+                allValue('[data-h2-input]', h2Input);
+
+                let text = document.getElementById('h2-1');
+                if (text) text.textContent = h2Input;
+
+                text = document.getElementById('h2-2');
+                if (text) text.textContent = h2Input;
+            }
+
+            //new part 25.11
+            if (h2Input) {
+                let h1 = h2Input - 0.3;
+                h1 = Number(h1.toFixed(3));
+
+                let text = document.getElementById('h1');
+                if (text) text.textContent = h1;
+            }
+
             if (numFloors) {
                 Htr = 10+4*(numFloors-1);
                 formulaHtrResult = `H_{\\text{тр}} = 10+4*(${numFloors}-1) = ${Htr} м (3.1)`;
@@ -158,7 +184,7 @@ for (let elem = 0; elem < inputs.length; elem++){
                 if (element) element.textContent = Number(hGeom.toFixed(1));
             }
 
-            if (uInput && qDB0Input && qDB1Input) {
+            if (uInput) {
                 U = uInput;
                 // U = parseFloat(numBuildings) * parseFloat(numSections) * parseFloat(numFloors) * parseFloat(numApartments) * parseFloat(population);
                 // U = Number(U.toFixed(2));
@@ -168,14 +194,14 @@ for (let elem = 0; elem < inputs.length; elem++){
                 allValue('[u]', U.toString() + " чел")
                 allValue('[u-3]', U.toString() + " чел. (количество водопотребителей)")
 
-                qb0 = Number(qDB0Input)*U/1000;
+                qb0 = Number(180)*U/1000;
                 qb0 = Number(qb0.toFixed(2)); //to fixed
-                qb1 = Number(qDB1Input)*U/1000;
+                qb1 = Number(110)*U/1000;
                 qb1 = Number(qb1.toFixed(2)); //to fixed
             }
 
-            if (U && qb0 && qDB0Input) {
-                let formulaQb0Text = `q^{\\text{b0}}_{\\text{сут}} = \\frac{q^{\\text{B0}}_{\\text{сут}} * U}{1000} = \\frac{${qDB0Input} * ${U}}{1000} = ${qb0} \\frac{\\text{м³}}{\\text{сут}}`;
+            if (U && qb0) {
+                let formulaQb0Text = `q^{\\text{b0}}_{\\text{сут}} = \\frac{q^{\\text{B0}}_{\\text{сут}} * U}{1000} = \\frac{180 * ${U}}{1000} = ${qb0} \\frac{\\text{м³}}{\\text{сут}}`;
                 hiddenFormulaCont = 'hiddenFormulaQb0';
                 formulaCont='formulaQb0';
                 canvasCont='canvasQb0';
@@ -206,23 +232,8 @@ for (let elem = 0; elem < inputs.length; elem++){
                 allValue('Qb0d-table', qb0);
             }
 
-            if (qDB0Input && qDB1Input) {
-                let formulaQdB0Text = `q_{\\text{сут}}^{\\text{B0}} = ${qDB0Input} \\frac{\\text{л}}{\\text{сут}}`;
-                hiddenFormulaCont = 'hiddenFormulaQdB0';
-                formulaCont='formulaQdB0';
-                canvasCont='canvasQdB0';
-                calculate(formulaQdB0Text, hiddenFormulaCont,formulaCont,canvasCont);
-
-                let formulaQdB1Text = `q_{\\text{сут}}^{\\text{B1}} = ${qDB0Input} - 70 = ${qDB1Input} \\frac{\\text{л}}{\\text{сут}}`;
-                hiddenFormulaCont = 'hiddenFormulaQdB1';
-                formulaCont='formulaQdB1';
-                canvasCont='canvasQdB1';
-                calculate(formulaQdB1Text, hiddenFormulaCont,formulaCont,canvasCont);
-
-            }
-
-            if(U && qb1 && qDB1Input) {
-                let formulaQb1Text = `q^{\\text{b1}}_{\\text{сут}} = \\frac{q^{\\text{B1}}_{\\text{сут}} * U}{1000} = \\frac{${qDB1Input} * ${U}}{1000} = ${qb1} \\frac{\\text{м³}}{\\text{сут}}`;
+            if(U && qb1) {
+                let formulaQb1Text = `q^{\\text{b1}}_{\\text{сут}} = \\frac{q^{\\text{B1}}_{\\text{сут}} * U}{1000} = \\frac{110 * ${U}}{1000} = ${qb1} \\frac{\\text{м³}}{\\text{сут}}`;
                 hiddenFormulaCont = 'hiddenFormulaQb1';
                 formulaCont='formulaQb1';
                 canvasCont='canvasQb1';
@@ -266,6 +277,10 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaPB0s';
                 canvasCont='canvasPB0s';
                 calculate(formulaPB0sText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                //new part 30.11
+                let text = document.getElementById('pSB0-table2');
+                if (text) text.textContent = Psb0;
             }
 
             if (U && Nb1) {
@@ -291,6 +306,19 @@ for (let elem = 0; elem < inputs.length; elem++){
                 formulaCont='formulaA1NP';
                 canvasCont='canvasA1NP';
                 calculate(formulaA1NPText, hiddenFormulaCont,formulaCont,canvasCont);
+
+                //new part 25.11
+                let text = document.getElementById('P-s-B0-1');
+                if (text) text.textContent = Psb0;
+
+                text = document.getElementById('P-s-B0-2');
+                if (text) text.textContent = Psb0;
+
+                text = document.getElementById('N-B0');
+                if (text) text.textContent = Nb0;
+
+                text = document.getElementById('NP');
+                if (text) text.textContent = NP1;
             }
 
             if (NP1) {
@@ -372,21 +400,28 @@ for (let elem = 0; elem < inputs.length; elem++){
 
                     text = document.getElementById('v-text');
                     if (text) text.textContent = Number(result.v.toFixed(3));
+
+                    //new part 25.11
+                    text = document.getElementById('a-1');
+                    if (text) text.textContent = a;
+
+                    text = document.getElementById('a-2');
+                    if (text) text.textContent = a;
+
+                    let qTot = 5 * 0.3 * a;
+                    qTot = Number(qTot.toFixed(2));
+
+                    text = document.getElementById('q-tot-1');
+                    if (text) text.textContent = qTot;
+
+                    text = document.getElementById('q-tot-2');
+                    if (text) text.textContent = qTot;
+
+                    let qS = Number(qTot) + 1.6;
+                    qS = Number(qS.toFixed(2));
+                    text = document.getElementById('q-s');
+                    if (text) text.textContent = qS;
                 }
-
-                //
-                // let iText = document.getElementById('i-text');
-                // if (iText) iText.textContent = result.i;
-
-                // if (result.i && lInput) {
-                //     let hvv = Number(result.i) * Number(lInput);
-                //     hvv = Number(hvv.toFixed(3));
-                //     let formulaText = `\\text{h}_\\text{вв} = ${Number(result.i).toFixed(5)} * ${lInput} = ${hvv} \\text{ м}`;
-                //     hiddenFormulaCont = 'hiddenFormulaHvv';
-                //     formulaCont='formulaHvv';
-                //     canvasCont='canvasHvv';
-                //     calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
-                // }
             }
 
             if (Nb1 && Psb1) {
@@ -554,9 +589,48 @@ for (let elem = 0; elem < inputs.length; elem++){
                 element = document.getElementById('h-p-text');
                 if (element) element.textContent = hP;
             }
+
+            //new part 30.11
+            if (nInput && Psb0) {
+                let np = Number((nInput * Psb0).toFixed(3));
+                let text = document.getElementById('np-table2');
+                if (text) text.textContent = np;
+
+                let a = findAlphaByNP(np);
+                a = Number(a.toFixed(3))
+                text = document.getElementById('a-table2');
+                if (text) text.textContent = a;
+
+                let qSB0 = Number((5 * 0.3 * a).toFixed(3));
+                text = document.getElementById('qSB0-table2');
+                if (text) text.textContent = qSB0;
+
+                let qSK1 = Number((1.6 + qSB0).toFixed(3));
+                text = document.getElementById('qSK1-table2');
+                if (text) text.textContent = qSK1;
+            }
         }
     });
 }
+
+//new part 25.11
+let formulaText = `q^{\\text{sl}} = \\frac{q^{\\text{tot}}_{\\text{hr}}}{3.6} + k_s q^s_0, л/c.`;
+hiddenFormulaCont = 'hiddenFormulaQsl';
+formulaCont='formulaQsl';
+canvasCont='canvasQsl';
+calculate(formulaText, hiddenFormulaCont,formulaCont,canvasCont);
+
+let formulaQdB0Text = `q_{\\text{сут}}^{\\text{B0}} = 180 \\frac{\\text{л}}{\\text{сут}}`;
+hiddenFormulaCont = 'hiddenFormulaQdB0';
+formulaCont='formulaQdB0';
+canvasCont='canvasQdB0';
+calculate(formulaQdB0Text, hiddenFormulaCont,formulaCont,canvasCont);
+
+let formulaQdB1Text = `q_{\\text{сут}}^{\\text{B1}} = 180 - 70 = 110 \\frac{\\text{л}}{\\text{сут}}`;
+hiddenFormulaCont = 'hiddenFormulaQdB1';
+formulaCont='formulaQdB1';
+canvasCont='canvasQdB1';
+calculate(formulaQdB1Text, hiddenFormulaCont,formulaCont,canvasCont);
 
 let formulaQdText = `q_{\\text{сут}} = \\frac{q_\\text{0 сут} * U}{1000}`;
 hiddenFormulaCont = 'hiddenFormulaQd';

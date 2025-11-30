@@ -17,13 +17,15 @@
 <label for="">Заселенность чел/кв  <input type="text" placeholder="Введите значение" data-population></label><br><br>
 <label for="">Количество приборов на этаже <input type="text" placeholder="Введите количество" data-num-devices></label><br><br>
 <label for="">Количество квартир на этаже <input type="text" placeholder="Введите количество" data-num-apartments></label><br><br>
-<label for="">q<sup>B0</sup><sub>сут</sub> <input type="text" data-qDB0-input></label><br><br>
 <label for="">∑H<sub>il</sub> <input type="text" data-hIl-input></label><br><br>
-<label for="">l <input type="text" data-l-input></label><br><br>
+<label for="">l длина ввода <input type="text" data-l-input></label><br><br>
 <label for="">H<sub>гр</sub> <input type="text" data-hG-input></label><br><br>
 <label for="">d на вводе <input type="text" data-d-input></label><br><br>
 <label for="">U - заселенность <input type="text" placeholder="Введите количество" data-U-input></label><br><br>
-
+<!--new part 25.11-->
+<label for="">Глубина промерзания h2 <input type="text" data-h2-input></label><br><br>
+<!--new part 30.11-->
+<label for="">N приборов <input type="text" data-n-input></label><br><br>
 
 <h1 class="chapter-heading">
     <a name="_Toc211027131" class="chapter-anchor">
@@ -255,11 +257,11 @@
     </span>
 </p>
 
-<p class="mso-normal">
-    <span class="text-content">
-        Внутреннюю водопроводную сеть принимаем из водогазопроводных стальных оцинкованных труб ГОСТ 3262-75
-    </span>
-</p>
+<!--<p class="mso-normal">-->
+<!--    <span class="text-content">-->
+<!--        Внутреннюю водопроводную сеть принимаем из водогазопроводных стальных оцинкованных труб ГОСТ 3262-75-->
+<!--    </span>-->
+<!--</p>-->
 
 <div class = "subcontent-container">
     <h2 class="subchapter-heading-0">
@@ -363,21 +365,23 @@
     </span>
 </p>
 
-<p class="mso-normal">
-    <span class="text-content">
-        2.	У основания стояков – шаровые краны из нержавеющей стали Naval (фланец) DN 15-250, PN 2;
-    </span>
-</p>
+<!--30.11 удалено-->
+<!--<p class="mso-normal">-->
+<!--    <span class="text-content">-->
+<!--        2.	У основания стояков – шаровые краны из нержавеющей стали Naval (фланец) DN 15-250, PN 2;-->
+<!--    </span>-->
+<!--</p>-->
 
-<p class="mso-normal">
-    <span class="text-content">
-        3.	У основания пожарных стояков принимаем шаровые краны из нержавеющей стали Naval (фланец) DN 15-250, PN 25;
-    </span>
-</p>
+<!--<p class="mso-normal">-->
+<!--    <span class="text-content">-->
+<!--        3.	У основания пожарных стояков принимаем шаровые краны из нержавеющей стали Naval (фланец) DN 15-250, PN 25;-->
+<!--    </span>-->
+<!--</p>-->
 
+<!--30.11 изменен текст(номер)-->
 <p class="mso-normal">
     <span class="text-content">
-        4.	На квартирных подводках – шаровые краны Naval (внутренняя резьба)    DN 10-50.
+        2.	На квартирных подводках – шаровые краны Naval (внутренняя резьба)    DN 10-50.
     </span>
 </p>
 
@@ -408,9 +412,10 @@
     </span>
 </p>
 
+<!--30.11 изменен текст([1])-->
 <p class="mso-normal">
     <span class="text-content">
-        Расчетные расходы определяем по методике СП 30.13330.2020.
+        Расчетные расходы определяем по методике СП 30.13330.2020 [1].
     </span>
 </p>
 
@@ -464,9 +469,10 @@
 <div id="formulaQd" style="text-indent: 1.25cm;">*формула*</div>
 <canvas id="canvasQd" style="display: none; text-indent: 1.25cm;"></canvas>
 
+<!--30.11 изменен текст ([1])-->
 <p class="mso-normal">
     <span class="text-content">
-        q<sub>сут</sub> – суточная норма водопотребления холодной, горячей и общей воды, принимается по приложению А, табл. А2 СП 30.13330.2020 (потребитель - жилое здание с централизованным горячим водоснабжением и с ваннами длинной более 1500-1700 мм.)
+        q<sub>сут</sub> – суточная норма водопотребления холодной, горячей и общей воды, принимается по приложению А, табл. А2 СП 30.13330.2020 [1] (потребитель - жилое здание с централизованным горячим водоснабжением и с ваннами длинной более 1500-1700 мм.)
     </span>
 </p>
 
@@ -540,9 +546,10 @@
 <div id="formulaPs" style="text-indent: 1.25cm;">*формула*</div>
 <canvas id="canvasPs" style="display: none; text-indent: 1.25cm;"></canvas>
 
+<!--30.11 изменен текст-->
 <p class="mso-normal">
     <span class="text-content">
-        q<sub>0 час</sub> – норма расхода воды [л/час] одним потребителем в час наибольшего водопотребления, принимаем по таблице А2 СП30.13330.2020;
+        q<sub>0 час</sub> – норма расхода воды [л/час] одним потребителем в час наибольшего водопотребления, принимаем по таблице А2 СП30.13330.2020; [1]
     </span>
 </p>
 
@@ -552,9 +559,10 @@
     </span>
 </p>
 
+<!--30.11 изменен текст-->
 <p class="mso-normal">
     <span class="text-content">
-       α(NP) принимается по таблице Б2 СП 30.13330.2020.
+       α(NP) принимается по таблице Б2 СП 30.13330.2020. [1]
     </span>
 </p>
 
@@ -617,15 +625,17 @@
 <div id="formulaPh" style="text-indent: 1.25cm;">*формула*</div>
 <canvas id="canvasPh" style="display: none; text-indent: 1.25cm;"></canvas>
 
+<!--30.11 изменен текст-->
 <p class="mso-normal">
     <span class="text-content">
-        q<sub>0</sub> – секундный расход прибора [л/с], принимается по таблице А2 СП30.13330.2020;
+        q<sub>0</sub> – секундный расход прибора [л/с], принимается по таблице А2 СП30.13330.2020; [1]
     </span>
 </p>
 
+<!--30.11 изменен текст-->
 <p class="mso-normal">
     <span class="text-content">
-        q<sub>0ч</sub> – часовой расход прибора [л/час], принимается по таблице А2 СП30.13330.2020;
+        q<sub>0ч</sub> – часовой расход прибора [л/час], принимается по таблице А2 СП30.13330.2020; [1]
     </span>
 </p>
 
@@ -831,11 +841,13 @@
     <span class="chapter-title">Выбор счетчиков воды для системы внутреннего холодного водоснабжения</span>
 </h2>
 
+<!--30.11 изменен текст-->
 <p class="mso-normal">
     <span class="text-content">
-        Диаметр условного прохода счетчика воды следует выбирать исходя из среднечасового расхода воды за период потребления (сутки), который не должен превышать эксплуатационный, принимаемый по таблице 12.1 СП 30.13330.2020.
+        Диаметр условного прохода счетчика воды следует выбирать исходя из среднечасового расхода воды за период потребления (сутки), который не должен превышать эксплуатационный, принимаемый по таблице 12.1 СП 30.13330.2020. [1]
     </span>
 </p>
+
 
 <p class="mso-normal">
     <span class="text-content">
@@ -872,9 +884,10 @@
     </span>
 </p>
 
+<!--30.11 изменен текст-->
 <p class="mso-normal">
     <span class="text-content">
-        Отсюда, h = <span id="hvv-text"></span> м вод. ст. Потери напора не превышают 5 м вод. ст. (наибольшее допустимое значение для крыльчатых счетчиков, п. 12.16 СП 30.13330.2020).
+        Отсюда, h = <span id="hvv-text"></span> м вод. ст. Потери напора не превышают 5 м вод. ст. (наибольшее допустимое значение для крыльчатых счетчиков, п. 12.16 СП 30.13330.2020). [1]
     </span>
 </p>
 
@@ -898,9 +911,10 @@
     Рисунок 1. Счетчик воды (ОА «Тепловодомер»)
 </p>
 
+<!--30.11 изменен текст-->
 <p class="mso-normal">
     <span class="text-content">
-        Общедомовой водомерный узел на вводе В1 представлен на схеме рис. 3. При конструировании трубной обвязки водомерного узла учтены требования п. 12.9 СП 30.13330.2020.
+        Общедомовой водомерный узел на вводе В1 представлен на схеме рис. 3. При конструировании трубной обвязки водомерного узла учтены требования п. 12.9 СП 30.13330.2020. [1]
     </span>
 </p>
 
@@ -981,15 +995,10 @@
     </span>
 </p>
 
+<!--30.11 изменен текст-->
 <p class="mso-normal">
     <span class="text-content">
-        Тогда
-    </span>
-</p>
-
-<p class="mso-normal">
-    <span class="text-content">
-        h<sub>вв</sub> = <span id="h-l-calculate"></span> м
+        Тогда h<sub>вв</sub> = <span id="h-l-calculate"></span> м
     </span>
 </p>
 
@@ -1125,6 +1134,458 @@
     <li>Расход: <span id="Qb0maxs-2"></span> л/с (<span id="Qb0maxs-b"></span> м³/ч)</li>
     <li>Требуемый рабочий напор: <span id="h-p-text"></span> м вод. ст.;</li>
 </ul>
+
+<!--new part 25.11-->
+
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+
+<h1 class="chapter-heading">
+    <a name="_Toc211027150" class="chapter-anchor">
+        <span class="chapter-number">4.</span>
+    </a>
+    <span class="chapter-title">Системы внутреннего водоотведения</span>
+</h1>
+
+<h2 class="subchapter-heading-0">
+    <a name="_Toc211027151" class="chapter-anchor">
+        <span class="chapter-number">4.1</span>
+    </a>
+    <span class="chapter-title"> Система бытовой канализации</span>
+</h2>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Для жилого многоквартирного здания со встроенными помещениями общественного назначения запроектирована самотечная бытовая канализация К1 для отведения сточных вод от санитарно-технических приборов. Система К1 запроектирована из полиэтиленовых труб диаметром 50 и 110 мм по ГОСТ 22689-2014. Фасонные части предусмотрены из аналогичного материала. Согласно требованиям п. 18.4 СП 30.13330.2020 [1] в проекте предусмотрены косые крестовины и тройники для присоединения поэтажных отводов к стоякам, а также в точках подключения стояков к сборным горизонтальным трубопроводам.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Для возможности устранения засоров в системе К1 предусмотрены прочистки и ревизии, устанавливаемые через каждые три этажа.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Выпуски бытовой канализации предусмотрены из труб НПХВ диаметром 110 мм по ГОСТ 32413-2013. Из аналогичных труб монтируется и дворовая канализационная сеть.
+    </span>
+</p>
+
+<h2 class="subchapter-heading-0">
+    <a name="_Toc211027152" class="chapter-anchor">
+        <span class="chapter-number">4.2</span>
+    </a>
+    <span class="chapter-title">Определение расходов бытовых сточных вод</span>
+</h2>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Максимальный секундный расход сточных вод в стояке бытовой канализации определяется по формуле:
+    </span>
+</p>
+
+<p class="mso-heading">
+    <span class="text-content">
+        q<sup>s</sup> = q<sup>tot</sup> + q<sub>0</sub><sup>S</sup>, л/с (4.1)
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        где q<sup>tot</sup> – максимальный общий секундный расход воды, л/с; q<sub>0</sub><sup>S</sup> - максимальный секундный расход стоков от прибора с максимальным водоотведением (для умывальника – 0,15 л/c; для ванн – 1,1 л/с; для унитаза – 1,6 л/с; стиральная машина – 1 л/с).
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Произведем определение максимального секундного расхода сточной воды для стояка К1-1:
+    </span>
+</p>
+
+<p class="mso-heading">
+    <span class="text-content">
+        q<sup>s</sup> = q<sup>tot</sup> + q<sub>0</sub><sup>S</sup>, л/с
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        где q<sup>tot</sup> – максимальный общий секундный расход воды, л/с, в стояке; q<sub>0</sub><sup>S</sup> - максимального секундного расход стоков от прибора (унитаза) – 1,6 л/с.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Максимальный общий секундный расход воды в Ст.В1-1 q<sup>tot</sup>, л/с, следует определять по формуле:
+    </span>
+</p>
+
+<p class="mso-heading">
+    <span class="text-content">
+        q<sup>tot</sup> = 5q<sub>0</sub>α,
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        где q<sub>0</sub> – общий секундный расход воды прибором, л/с (принимаем 0,3 л/с); α - коэффициент, определяемый по приложению Б в зависимости от общего числа приборов N на расчетном участке сети и вероятности их действия Р.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Вероятность действия приборов: P<sub>сек</sub><sup>B0</sup> = <span id="P-s-B0-1"></span>.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Поскольку величина вероятности не превышает 0,1, используем приложение Б.2 СП30.13330.2020 [1] для определения коэффициента α: N·P = <span id="N-B0"></span> · <span id="P-s-B0-2"></span> = <span id="NP"></span>. Отсюда α = <span id="a-1"></span>.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Максимальный общий секундный расход воды:
+    </span>
+</p>
+
+<p class="mso-heading">
+    <span class="text-content">
+        q<sup>tot</sup> = 5q<sub>0</sub>α = 5 · 0,3 · <span id="a-2"></span> = <span id="q-tot-1"></span> л/с.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Максимальный секундный расход сточной воды для стояка К1-1:
+    </span>
+</p>
+
+<p class="mso-heading">
+    <span class="text-content">
+        q<sup>s</sup> = <span id="q-tot-2"></span> + 1,6 = <span id="q-s"></span> л/с.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        В проекте принимаем полиэтиленовые трубы по ГОСТ 22689-2014 для монтажа систем внутренней канализации.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Максимальный секундный расход сточных вод в горизонтальном трубопроводе канализации:
+    </span>
+</p>
+
+<div class="mso-heading">
+    <div id="hiddenFormulaQsl"></div>
+    <div id="formulaQsl" style="text-indent: 1.25cm;">*формула*</div>
+    <canvas id="canvasQsl" style="display: none; text-indent: 1.25cm;"></canvas>
+</div>
+
+<p class="mso-normal">
+    <span class="text-content">
+        где q<sub>hr</sub><sup>tot</sup> – максимальный общий часовой расход воды на расчетном участке, м³/ч; k<sub>s</sub> ‒ коэффициент, принимаемый по таблице 5.1 СП30.13330.2020 [1]; q<sub>0</sub><sup>s</sup>- расход стоков, л/с, от присоединяемого прибора с максимальной емкостью, принимаемый по таблице А.1 (для ванны – 1,1 л/с).
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Выбор расчетного уклона i, средней скорости сточной жидкости v, м/с, и наполнения h/d следует производить таким образом, чтобы было выполнено условие, характеризующее режим самоочищения в безнапорном трубопроводе (п. 19.1 СП 30.13330.2020 [1]):
+    </span>
+</p>
+
+<div class="mso-heading">
+    <div id="hiddenFormulaV"></div>
+    <div id="formulaV" style="text-indent: 1.25cm;">*формула*</div>
+    <canvas id="canvasV" style="display: none; text-indent: 1.25cm;"></canvas>
+</div>
+
+<p class="mso-normal">
+    <span class="text-content">
+        где h/d –наполнение трубопровода сточной жидкостью (принимать в интервале от 0,3 до 0,8); V – скорость течения сточной воды, м/с (принимать не менее 0,7 м/с).
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        К = 0,5 – для трубопроводов из полимерных материалов;
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        К = 0,6 – для трубопроводов из других материалов.
+    </span>
+</p>
+
+<h2 class="subchapter-heading-0">
+    <a name="_Toc211027153" class="chapter-anchor">
+        <span class="chapter-number">4.3</span>
+    </a>
+    <span class="chapter-title">Определение глубины промерзания</span>
+</h2>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Согласно п. 6.2.4 СП 32.13330.2018 [3] отметку минимальной глубины заложения лотка трубопровода допускается принимать выше отметки глубины проникания в грунт нулевой температуры на 0,3 м (при диаметре трубы до 500 мм).
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Глубину заложения выпуска h<sub>1</sub>, м, внутренней бытовой канализации (до низа трубы) определим по формуле:
+    </span>
+</p>
+
+<p class="mso-heading">
+    <span class="text-content">
+        h<sub>1</sub> = h<sub>2</sub> - 0,3 = <span id="h2-1"></span> - 0.3 = <span id="h1"></span> м (4.3)
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        где h<sub>2</sub> – глубина промерзания грунта, м (принимаем равной <span id="h2-2"></span> м по заданию).
+    </span>
+</p>
+
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+
+
+<h1 class="chapter-heading">
+    <a name="_Toc211027154" class="chapter-anchor">
+        <span class="chapter-number">5.</span>
+    </a>
+    <span class="chapter-title">ЗАКЛЮЧЕНИЕ</span>
+</h1>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Материал, изложенный курсовом проекте, соответствует учебной программе курса «Водоснабжение и водоотведение».
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        В курсовом проекте рассмотрен и проработан обширный круг теоретических и практических вопросов, которые должны изучать студенты для получения квалификации инженера по специальности ВиВ».
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Выполнение этого курсового проекта позволяет последовательно изучить внутренние санитарно-технические системы холодного водоснабжения и канализации.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        По каждой системе изучены и применены на практике материалы, позволяющие производить расчеты, проектирование, а так же строительства и дальнейшей эксплуатации раcчитываемого объекта.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        Все расчеты произведены в соответствии с современными нормами и правилами.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        В конструкциях систем применены новейшие строительные материалы, что позволяет максимально приблизить расчеты к реальной проектной работе инженера-проектировщика.
+    </span>
+</p>
+
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+
+<h1 class="chapter-heading">
+    <a name="_Toc211027155" class="chapter-anchor">
+        <span class="chapter-title">БИБЛИОГРАФИЧЕСКИЙ СПИСОК</span>
+    </a>
+</h1>
+
+<p class="mso-normal">
+    <span class="text-content">
+        1.	СП 30.13330.2020 Свод правил. Внутренний водопровод и канализация зданий. Актуализированная редакция СНиП 2.04.01-85*.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        2.	СП 31.13330.2021. Свод правил. Водоснабжение. Наружные сети и сооружения. Актуализированная редакция СНиП 2.04.02-84*.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        3.	СП 32.13330.2018. Свод правил. Канализация. Наружные сети и сооружения. Актуализированная редакция СНиП 2.04.03-85.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        4.	СП 73.13330.2016. Свод правил. Внутренние санитарно-технические системы зданий.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        5.	Шевелев Ф.А., Шевелев А.Ф. Таблицы для гидравлического расчета водопроводных труб: справ. пособие – 10-е изд., испр. – М.: БАСТЕТ, 2014.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        6.	Лукиных А.А., Лукиных Н.А. Таблицы для гидравлического расчета канализационных сетей и дюкеров по формуле Н.Н. Павловского. –М.: Стройиздат, 1974.– 156 c.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        7.	Викулин П.Д., Викулина В.Б. Гидравлика систем водоснабжения и водоотведения: учебник для студентов вузов, обучающихся по программе бакалавриата по направлению 270800 «Строительство» (профиль «Водоснабжение и водоотведение») – М.: МГСУ, 2014. – 249 с.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        8.	Лямаев, Б. Ф. Системы водоснабжения и водоотведения зданий: учебное пособие / Б. Ф. Лямаев, В. И. Кириленко, В. А. Нелюбов. — 2-е изд. — Санкт-Петербург: Политехника, 2020. — 305 c.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        9.	Зятина, В. И. Оборудование и материалы систем водоснабжения и водоотведения: учебно-методическое пособие для студентов направления подготовки 08.03.01. «Строительство» профиль «Водоснабжение и водоотведение» всех форм обучения / В. И. Зятина, В. И. Лесной.
+    </span>
+</p>
+
+<p class="mso-normal">
+    <span class="text-content">
+        10.	 Справочник проектировщика ч. 2 «Водопровод и канализация» под редакцией Староверова И.Г. и Шиллера Ю.И.. – Москва, Стройиздат 1990 г.
+    </span>
+</p>
+
+<!--new part 30.11-->
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+<br clear="all" style="page-break-before: always;">
+
+<p class="mso-heading">
+    <span class="text-content">
+        Таблица А.3 «Расчет вертикальных трубопроводов»
+    </span>
+</p>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <td>N<sub>уч.</sub></td>
+            <td>N<sub>пр</sub></td>
+            <td>P<sub>сек</sub><sup>B0</sup></td>
+            <td>NP</td>
+            <td>α</td>
+            <td>q<sub>сек</sub><sup>B0</sup></td>
+            <td>q<sup>К1</sup> л/с</td>
+            <td>q<sub>сек</sub><sup>K1</sup></td>
+            <td>d<sub>ст</sub></td>
+            <td>Угол</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>К1-1</td>
+            <td><span id="n-input-table2"></span></td>
+            <td><span id="pSB0-table2"></span></td>
+            <td><span id="np-table2"></span></td>
+            <td><span id="a-table2"></span></td>
+            <td><span id="qSB0-table2"></span></td>
+            <td>1.6</td>
+            <td><span id="qSK1-table2"></span></td>
+            <td>100</td>
+            <td>45</td>
+        </tr>
+    </table>
+</div>
+
+<p class="mso-heading">
+    <span class="text-content">
+        Таблица А.4 «Расчет горизонтальных трубопроводов»
+    </span>
+</p>
 
 <script src="script.js"></script>
 </body>
